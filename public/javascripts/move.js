@@ -1,28 +1,34 @@
 // Global Variables
 var currentKey = false;
 var TimerWalk;
-var charSpeed = 400;
+var charSpeed = 120;
+
+// Print Character Position Function
+function print_pos(character) {
+  pos = character.position();
+  console.log('left: ' + pos.left + ' top: ' + pos.top);
+}
 
 // Process Character Walk Function
 function processWalk(dir) {
   // move the char
-  // 1 unit of movement = 32px
+  // 1 unit of movement = 15px 
   switch(dir) {
     case'down':
-      $('#character').animate({top: '+=32'}, charSpeed);
+      print_pos($('#character').animate({top: '+=15'}, charSpeed));
       break;
     case'up':
-      // don't let the character move any further up if they are already at the top of the screen
+      // handle top border
       if ($('#character').position().top > 0) {
-        $('#character').animate({top: '-=32'}, charSpeed);
+        print_pos($('#character').animate({top: '-=15'}, charSpeed));
       } break;
     case'left':
-    // don't let the character move any further left if they are already at the left side of the screen  
+      // handle left border
       if ($('#character').position().left > 0) {
-        $('#character').animate({left: '-=32'}, charSpeed);
+        print_pos($('#character').animate({left: '-=15'}, charSpeed));
       } break;
     case'right':
-      $('#character').animate({left: '+=15'}, charSpeed);
+      print_pos($('#character').animate({left: '+=15'}, charSpeed));
       break;
     }
 }
