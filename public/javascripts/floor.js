@@ -29,13 +29,23 @@
     init: function() {
       var self = this
       this.$el
-        .css("position", "absolute");
-      for(var x in this.options.booths) {
-        var booth = this.options.booths[x];
+        .addClass("floor");
+
+      // Register booths
+      for(var i in this.options.booths) {
+        // Convert JSON object to Booth object
+        var booth = new Booth(
+          this.options.booths[i].x,
+          this.options.booths[i].y,
+          this.options.booths[i].height,
+          this.options.booths[i].width);
+        booth.background_url = this.options.booths[i].background_url;
+        booth.booth_url = this.options.booths[i].booth_url;
+        this.options.booths[i] = booth;
+
+        // Create the visual object
         var $booth = $("<div />")
           .addClass("booth")
-          .data("booth", booth)
-          .css("position", "absolute")
           .css("left", booth.x)
           .css("top", booth.y)
           .height(booth.height)
@@ -44,8 +54,21 @@
 
         booth.$el = $booth;
       }
-
       this.$el.data("booths", this.options.booths);
+
+      // Register sections
+      for(var i in this.options.sections) {
+        // Convert JSON object to Section object
+        var section = new Section(
+          this.options.sections[i].x,
+          this.options.sections[i].y,
+          this.options.sections[i].height,
+          this.options.sections[i].width
+        );
+        section.video_url = this.options.sections[i].video_url;
+        this.options.sections[i] = section;
+      }
+      this.$el.data("sections", this.options.sections);
     },
   };
 
@@ -61,8 +84,10 @@
 
   $.fn.getBoothAt = function(x, y) {
     var $this = $(this);
+    if(!$this.hasClass("floor"))
+      return null;
+
     var booths = $this.data("booths");
-    // TODO make sure this is a floor object
     for(var i in booths) {
       var booth = booths[i];
       if(x >= booth.x && x <= booth.x + booth.width
@@ -72,7 +97,24 @@
     return null;
   }
 
+  $.fn.getSectionAt = function(x, y) {
+    var $this = $(this);
+    if(!$this.hasClass("floor"))
+      return null;
+
+    var sections = $this.data("sections");
+    // TODO make sure this is a floor object
+    for(var i in sections) {
+      var section = sections[i];
+      if(x >= section.x && x <= section.x + section.width
+        && y >= section.y && y <= section.y + section.height)
+        return section;
+    }
+    return null;
+  }
+
 })( jQuery, window, document );
+
 
 
 // Run the map (TODO, REMOVE ME)
@@ -96,6 +138,24 @@ $(function(){
         background_url: "",
         booth_url: ""
       },
-    ]
+    ],
+
+    sections: [
+      {
+        x:0,
+        y:0,
+        height:200,
+        width: 400,
+        video_url: ""
+      },
+      {
+        x:200,
+        y:0,
+        height:200,
+        width: 400,
+        video_url: ""
+      },
+    ],
+
   });
 })

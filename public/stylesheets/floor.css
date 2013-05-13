@@ -5,6 +5,10 @@
 	border: 1px solid black;
 }
 
+.floor {
+	position: absolute;
+}
 .booth {
+	position: absolute;
 	border: 1px solid black;
 }
