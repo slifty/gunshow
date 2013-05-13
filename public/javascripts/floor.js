@@ -3,11 +3,13 @@
   // Create the defaults once
   var pluginName = "Floor",
     defaults = {
-      booths: []
+      booths: [],
+      sections: []
     };
 
   // The actual plugin constructor
   function Plugin( el, options ) {
+    var self = this
     this.el = el;
     this.$el = $(el);
 
@@ -25,6 +27,7 @@
 
   Plugin.prototype = {
     init: function() {
+      var self = this
       this.$el
         .css("position", "absolute");
       for(var x in this.options.booths) {
@@ -41,8 +44,9 @@
 
         booth.$el = $booth;
       }
-    },
 
+      this.$el.data("booths", this.options.booths);
+    },
   };
 
   // A really lightweight plugin wrapper around the constructor,
@@ -54,6 +58,19 @@
       }
     });
   };
+
+  $.fn.getBoothAt = function(x, y) {
+    var $this = $(this);
+    var booths = $this.data("booths");
+    // TODO make sure this is a floor object
+    for(var i in booths) {
+      var booth = booths[i];
+      if(x >= booth.x && x <= booth.x + booth.width
+        && y >= booth.y && y <= booth.y + booth.height)
+        return booth;
+    }
+    return null;
+  }
 
 })( jQuery, window, document );
 
@@ -67,13 +84,17 @@ $(function(){
         x:10,
         y:10,
         height:100,
-        width: 100
+        width: 100,
+        background_url: "",
+        booth_url: ""
       },
       {
         x:200,
         y:200,
         height:100,
-        width: 100
+        width: 100,
+        background_url: "",
+        booth_url: ""
       },
     ]
   });
