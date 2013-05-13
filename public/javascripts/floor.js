@@ -41,7 +41,6 @@
           this.options.booths[i].width);
         booth.background_url = this.options.booths[i].background_url;
         booth.booth_url = this.options.booths[i].booth_url;
-        this.options.booths[i] = booth;
 
         // Create the visual object
         var $booth = $("<div />")
@@ -53,6 +52,7 @@
           .appendTo(this.$el);
 
         booth.$el = $booth;
+        this.options.booths[i] = booth;
       }
       this.$el.data("booths", this.options.booths);
 
