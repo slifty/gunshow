@@ -36,25 +36,37 @@ function give_pos(character) {
 function processWalk(dir) {
   // move the char
   // 1 unit of movement = 15px 
+  var $character = $('#character');
+  var top = $character.position().top;
+  var left = $character.position().left;
+
+  // Calcualte new position
   switch(dir) {
     case'down':
-      give_pos($('#character').animate({top: '+=15'}, $charSpeed));
+      top += 15;
       break;
     case'up':
-      // really glitchy bug here with going over the border. wtf??
-      // handle top border
-      if ($('#character').position().top > 7) {
-        give_pos($('#character').animate({top: '-=15'}, $charSpeed));
-      } break;
-    case'left':
-      // handle left border
-      if ($('#character').position().left > 7) {
-        give_pos($('#character').animate({left: '-=15'}, $charSpeed));
-      } break;
-    case'right':
-      give_pos($('#character').animate({left: '+=15'}, $charSpeed));
+      top -= 15;
       break;
-    }
+    case'left':
+      left -= 15;
+      break;
+    case'right':
+      left += 15;
+      break;
+  }
+
+  // Make sure we aren't out of bounds
+  left = Math.max(left, 0);
+  top = Math.max(top, 0);
+
+  // Move to new position
+  $character.css("left", left);
+  $character.css("top", top);
+  //$character.animate({}, $charSpeed);
+
+  //give_pos($('#character').animate({left: '+=15'}, $charSpeed));
+
 }
 
 // Character Walk Function

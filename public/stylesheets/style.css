@@ -20,4 +20,5 @@ a {
   height: 15px;
   width: 15px;
   background-color: #b8ff5c;
+  transition: left .4s, top .4s;
 }
