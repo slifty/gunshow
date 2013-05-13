@@ -4,10 +4,22 @@ var $TimerWalk;
 var $charSpeed = 120;
 
 // Print Character Position Function
-function print_pos(character) {
+function give_pos(character) {
   pos = character.position();
-  console.log('left: ' + pos.left + ' top: ' + pos.top);
-  //TODO: call function to get back booth
+  //DEBUG
+  //console.log('left: ' + pos.left + ' top: ' + pos.top);
+  
+  //if (getBoothAt(pos.top, pos.left)) {
+  //}
+  //if (getLiveViewAt(pos.top, pos.left)) {
+  if ($('#live-view-content').length == 0) {
+    var img = $('<img id="live-view-content">');
+    img.attr('src', '../images/images-4.jpeg');
+    img.attr('width', '150');
+    img.attr('height', '150');
+    img.appendTo('#live-view');
+  }
+  //}
 }
 
 // Process Character Walk Function
@@ -16,20 +28,20 @@ function processWalk(dir) {
   // 1 unit of movement = 15px 
   switch(dir) {
     case'down':
-      print_pos($('#character').animate({top: '+=15'}, $charSpeed));
+      give_pos($('#character').animate({top: '+=15'}, $charSpeed));
       break;
     case'up':
       // handle top border
       if ($('#character').position().top > 0) {
-        print_pos($('#character').animate({top: '-=15'}, $charSpeed));
+        give_pos($('#character').animate({top: '-=15'}, $charSpeed));
       } break;
     case'left':
       // handle left border
       if ($('#character').position().left > 0) {
-        print_pos($('#character').animate({left: '-=15'}, $charSpeed));
+        give_pos($('#character').animate({left: '-=15'}, $charSpeed));
       } break;
     case'right':
-      print_pos($('#character').animate({left: '+=15'}, $charSpeed));
+      give_pos($('#character').animate({left: '+=15'}, $charSpeed));
       break;
     }
 }

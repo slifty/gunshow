@@ -1,10 +1,18 @@
 #floor {
-	height: 600px;
-	width: 80%;
-	margin: 50px 10%;
-	border: 1px solid black;
+  height: 600px;
+  width: 80%;
+  margin: 50px 10%;
+  border: 1px solid black;
 }
 
 .booth {
-	border: 1px solid black;
+  border: 1px solid black;
+}
+
+#live-view {
+  margin: 5px;
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+  float: right;
 }
