@@ -5,10 +5,16 @@ var $charSpeed = 120;
 
 // Print Character Position Function
 function give_pos(character) {
-  pos = character.position();
-  var booth = $("#floor").getBoothAt(pos.left, pos.top)
-  //var section = getSectionAt(pos.top, pos.left);
+  var pos = character.position();
+  var booth = $("#floor").getBoothAt(pos.left, pos.top);
+  var section = $("#floor").getSectionAt(pos.left, pos.top);
   if (booth) {
+    $(booth.$el[0]).html("<span id='on'>BOOTH</span>");
+  } else {
+    $('#on').remove();
+  }
+  if (section) {
+    // TODO: should load video instead
     if ($('#live-view-content').length == 0) {
       var img = $('<img id="live-view-content">');
       img.attr('src', '../images/images-4.jpeg');
@@ -19,17 +25,6 @@ function give_pos(character) {
   } else {
     $("#live-view-content").remove();
   }
-  //} else if (section) {
-  //  console.log(section);
-  //  // TODO: should load video instead
-  //  if ($('#live-view-content').length == 0) {
-  //    var img = $('<img id="live-view-content">');
-  //    img.attr('src', '../images/images-4.jpeg');
-  //    img.attr('width', '150');
-  //    img.attr('height', '150');
-  //    img.appendTo('#live-view');
-  //  }
-  //}
 }
 
 // Process Character Walk Function
