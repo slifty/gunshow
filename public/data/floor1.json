@@ -1,0 +1,36 @@
+{
+  "booths": [
+    {
+      "x":10,
+      "y":10,
+      "height":100,
+      "width": 100,
+      "background_url": "",
+      "booth_url": ""
+    },
+    {
+      "x":200,
+      "y":200,
+      "height":100,
+      "width": 100,
+      "background_url": "",
+      "booth_url": ""
+    }
+  ],
+  "sections": [
+    {
+      "x":0,
+      "y":0,
+      "height":200,
+      "width": 400,
+      "video_url": ""
+    },
+    {
+      "x":0,
+      "y":2000,
+      "height":200,
+      "width": 400,
+      "video_url": ""
+    }
+  ]
+}

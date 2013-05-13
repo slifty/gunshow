@@ -8,6 +8,20 @@
     <script type="text/javascript" src="javascripts/classes/section.js"></script>
     <script type="text/javascript" src="javascripts/floor.js"></script>
     <script type="text/javascript" src="javascripts/move.js"></script>
+
+    <script type="text/javascript">
+      $(function() {
+        $.ajax({
+          "method": "GET",
+          "url": "data/floor1.json",
+          "dataType": "JSON"
+        })
+        .done(function(data) {
+          var $floor = $("#floor");
+          $floor.Floor(data);
+        })
+      })
+    </script>
   </head>
   <body>
     <div id="floor">
