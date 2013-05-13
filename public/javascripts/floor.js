@@ -26,13 +26,11 @@
   Plugin.prototype = {
     init: function() {
       this.$el
-        .height(100)
-        .width(100)
-        .css("background","red")
         .css("position", "absolute");
       for(var x in this.options.booths) {
         var booth = this.options.booths[x];
         var $booth = $("<div />")
+          .addClass("booth")
           .data("booth", booth)
           .css("position", "absolute")
           .css("left", booth.x)
@@ -62,8 +60,8 @@
 
 // Run the map (TODO, REMOVE ME)
 $(function(){
-  var $map = $("#map");
-  $map.ConferenceMap({
+  var $map = $("#floor");
+  $map.Floor({
     booths: [
       {
         x:10,
