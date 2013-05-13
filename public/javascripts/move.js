@@ -6,19 +6,29 @@ var $charSpeed = 120;
 // Print Character Position Function
 function give_pos(character) {
   pos = character.position();
-  //DEBUG
-  //console.log('left: ' + pos.left + ' top: ' + pos.top);
-  
-  //if (getBoothAt(pos.top, pos.left)) {
-  //}
-  //if (getLiveViewAt(pos.top, pos.left)) {
-  if ($('#live-view-content').length == 0) {
-    var img = $('<img id="live-view-content">');
-    img.attr('src', '../images/images-4.jpeg');
-    img.attr('width', '150');
-    img.attr('height', '150');
-    img.appendTo('#live-view');
+  var booth = $("#floor").getBoothAt(pos.left, pos.top)
+  //var section = getSectionAt(pos.top, pos.left);
+  if (booth) {
+    if ($('#live-view-content').length == 0) {
+      var img = $('<img id="live-view-content">');
+      img.attr('src', '../images/images-4.jpeg');
+      img.attr('width', '150');
+      img.attr('height', '150');
+      img.appendTo('#live-view');
+    }
+  } else {
+    $("#live-view-content").remove();
   }
+  //} else if (section) {
+  //  console.log(section);
+  //  // TODO: should load video instead
+  //  if ($('#live-view-content').length == 0) {
+  //    var img = $('<img id="live-view-content">');
+  //    img.attr('src', '../images/images-4.jpeg');
+  //    img.attr('width', '150');
+  //    img.attr('height', '150');
+  //    img.appendTo('#live-view');
+  //  }
   //}
 }
 
@@ -31,13 +41,14 @@ function processWalk(dir) {
       give_pos($('#character').animate({top: '+=15'}, $charSpeed));
       break;
     case'up':
+      // really glitchy bug here with going over the border. wtf??
       // handle top border
-      if ($('#character').position().top > 0) {
+      if ($('#character').position().top > 7) {
         give_pos($('#character').animate({top: '-=15'}, $charSpeed));
       } break;
     case'left':
       // handle left border
-      if ($('#character').position().left > 0) {
+      if ($('#character').position().left > 7) {
         give_pos($('#character').animate({left: '-=15'}, $charSpeed));
       } break;
     case'right':
