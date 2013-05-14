@@ -51,6 +51,14 @@
           .width(booth.width)
           .appendTo(this.$el);
 
+        // Background image for the booth
+        var $booth_img = $('<img />') 
+          .addClass("booth-img")
+          .attr("src", booth.background_url)
+          .css("max-width", "100%")
+          .css("max-height", "100%")
+          .appendTo($booth);
+
         booth.$el = $booth;
         this.options.booths[i] = booth;
       }

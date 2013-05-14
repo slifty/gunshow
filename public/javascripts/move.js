@@ -9,21 +9,26 @@ function give_pos(character) {
   var booth = $("#floor").getBoothAt(pos.left, pos.top);
   var section = $("#floor").getSectionAt(pos.left, pos.top);
   if (booth) {
-    $(booth.$el[0]).html("<span id='on'>BOOTH</span>");
+    $(booth.$el[0])
+      .find("img")
+      .css("opacity", "0.4");
   } else {
-    $('#on').remove();
+    $(".booth-img")
+      .css("opacity", "1");
   }
   if (section) {
-    // TODO: should load video instead
-    if ($('#live-view-content').length == 0) {
-      var img = $('<img id="live-view-content">');
-      img.attr('src', '../images/images-4.jpeg');
-      img.attr('width', '150');
-      img.attr('height', '150');
-      img.appendTo('#live-view');
-    }
-  } else {
-    $("#live-view-content").remove();
+    //var video = $("#live-view").find("iframe").attr("src");
+    //console.log(video);
+    //if (video) {
+    //  if (video.split("?")[0] != section.video_url.split("?")[0]) {
+        var live_video = Popcorn.vimeo(
+          '#live-view',
+          section.video_url);
+        live_video.autoplay = true;
+        live_video.loop = true;
+        live_video.play();
+    //  }
+    //}
   }
 }
 
