@@ -28,19 +28,19 @@
   Plugin.prototype = {
     init: function() {
       var self = this
-      this.$el
+      self.$el
         .addClass("floor");
 
       // Register booths
-      for(var i in this.options.booths) {
+      for(var i in self.options.booths) {
         // Convert JSON object to Booth object
         var booth = new GunshowBooth(
-          this.options.booths[i].x,
-          this.options.booths[i].y,
-          this.options.booths[i].height,
-          this.options.booths[i].width);
-        booth.background_url = this.options.booths[i].background_url;
-        booth.booth_url = this.options.booths[i].booth_url;
+          self.options.booths[i].x,
+          self.options.booths[i].y,
+          self.options.booths[i].height,
+          self.options.booths[i].width);
+        booth.background_url = self.options.booths[i].background_url;
+        booth.booth_url = self.options.booths[i].booth_url;
 
         // Create the visual object
         var $booth = $("<div />")
@@ -60,21 +60,26 @@
           .appendTo($booth);
 
         booth.$el = $booth;
-        this.options.booths[i] = booth;
+        self.options.booths[i] = booth;
       }
 
       // Register sections
-      for(var i in this.options.sections) {
+      for(var i in self.options.sections) {
         // Convert JSON object to Section object
         var section = new GunshowSection(
-          this.options.sections[i].x,
-          this.options.sections[i].y,
-          this.options.sections[i].height,
-          this.options.sections[i].width
+          self.options.sections[i].x,
+          self.options.sections[i].y,
+          self.options.sections[i].height,
+          self.options.sections[i].width
         );
-        section.video_url = this.options.sections[i].video_url;
-        this.options.sections[i] = section;
+        section.video_url = self.options.sections[i].video_url;
+        self.options.sections[i] = section;
       }
+
+      // Create live view
+      self.liveView = $("<div />")
+        .addClass("live-view")
+        .appendTo(self.$el);
     },
     getBoothAt: function(x, y) {
       var self = this;
@@ -109,14 +114,27 @@
       self.characters[character.id] = character;
       character.$el.remove()
         .appendTo(self.$el);
-
-      console.log(character.$el);
     },
     removeCharacter: function(character) {
       delete self.characters[character.id];
     },
-    registerLocation: function(x,y) {
-      
+    setFocus: function(x,y) {
+      var self = this;
+      var sections = self.getSectionAt(x,y);
+      if(sections.length > 0) {
+        var section = sections[0];
+        if(self.liveView.data("videoURL") != section.video_url) {
+          self.liveView.data("videoURL", section.video_url)
+          self.liveView.empty();
+          if(section.video_url != "") {
+            var video = Popcorn.vimeo('.live-view', section.video_url + "?loop=1");
+            video.play();
+          }
+        }
+      } else {
+        self.liveView.empty();
+        self.liveView.data("videoURL", "")
+      }
     }
   };
 

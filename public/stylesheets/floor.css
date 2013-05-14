@@ -15,9 +15,7 @@
   z-index: -100;
 }
 
-#live-view {
+.live-view {
   margin: 5px;
-  width: 250px;
-  height: 250px;
   float: right;
 }

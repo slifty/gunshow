@@ -19,18 +19,11 @@
   ],
   "sections": [
     {
-      "x": 20,
-      "y": 20,
+      "x": 0,
+      "y": 0,
       "height": 200,
       "width": 400,
       "video_url": "http://player.vimeo.com/video/66157375"
-    },
-    {
-      "x": 0,
-      "y": 2000,
-      "height": 200,
-      "width": 400,
-      "video_url": ""
     }
   ]
 }

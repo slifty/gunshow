@@ -98,18 +98,17 @@
 
       if(self.space != null) {
         if(self.options.type == "user") {
-          self.space.registerLocation(self.leftDest, self.topDest);
+          self.space.setFocus(self.leftDest, self.topDest);
           var nearbyObjects = self.space.getObjectsAt(self.leftDest, self.topDest);
           for(var i in nearbyObjects) {
             var nearbyObject = nearbyObjects[i];
             if(nearbyObject instanceof GunshowBooth) {
               // Enter the booth
-              console.log("booth");
+              self.currentBooth = nearbyObject;
             }
 
             if(nearbyObject instanceof GunshowSection) {
               // Enter the section
-              console.log("section")
             }
           }
         }
