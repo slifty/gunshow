@@ -58,9 +58,7 @@ function processWalk(dir) {
   // Move to new position
   $character.css("left", left);
   $character.css("top", top);
-  //$character.animate({}, $charSpeed);
-
-  //give_pos($('#character').animate({left: '+=15'}, $charSpeed));
+  give_pos($character);
 
 }
 
