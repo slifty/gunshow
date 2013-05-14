@@ -27,6 +27,7 @@
 
   Plugin.prototype = {
     init: function() {
+      console.log("TEST");
       var self = this
       this.$el
         .addClass("floor");
