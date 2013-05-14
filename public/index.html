@@ -3,13 +3,19 @@
     <title>Scratch Pad!</title>
     <link href="stylesheets/style.css" type="text/css" rel="stylesheet" />
     <link href="stylesheets/floor.css" type="text/css" rel="stylesheet" />
+    <link href="stylesheets/jquery.countdown.css" type="text/css" rel="stylesheet" />
+
     <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="lib/jquery.countdown.js"></script>
     <script type="text/javascript" src="javascripts/classes/booth.js"></script>
     <script type="text/javascript" src="javascripts/classes/section.js"></script>
     <script type="text/javascript" src="javascripts/floor.js"></script>
     <script type="text/javascript" src="javascripts/character.js"></script>
+    <script type="text/javascript" src="javascripts/move.js"></script>
+    <script type="text/javascript" src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
 
     <script type="text/javascript">
+      // load booth and section data (JSON)
       $(function() {
         $.ajax({
           "method": "GET",
@@ -29,7 +35,29 @@
           $character.data("GunshowCharacter").enterSpace($floor.data("GunshowFloor"));
           $roamingCharacter.data("GunshowCharacter").enterSpace($floor.data("GunshowFloor"), 100, 100);
         })
-      })
+      });
+
+      // set timer and callback function
+      $(function(){ 
+        // initialize to 10 minutes
+        ts = (new Date()).getTime() + 10*60*1000;
+          
+        $('#countdown').countdown({
+          timestamp : ts,
+          callback  : function(minutes, seconds){
+            if (minutes == 5 && seconds == 0) {
+              console.log("You have 5 minutes left!");
+            }
+            if (minutes == 1 && seconds == 0) {
+              console.log("One minute left!!");
+            }
+            if (minutes == 0 && seconds == 0) {
+              // kick out of showroom
+              console.log("GET OUT");
+            }
+          }
+        }); 
+      });
     </script>
   </head>
   <body>
@@ -37,6 +65,7 @@
     <div id="roaming_character"></div>
     <div id="floor">
       <div id="live-view"></div>
+      <div id="countdown"></div>
     </div>
   </body>
 </html>

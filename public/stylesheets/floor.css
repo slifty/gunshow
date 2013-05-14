@@ -1,22 +1,23 @@
 #floor {
-  height: 600px;
-  width: 80%;
-  margin: 50px 10%;
-  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/binding_light.png");
+  background-repeat: repeat;
+  z-index: -999;
 }
 
 .floor {
-	position: absolute;
+  position: absolute;
 }
+
 .booth {
-	position: absolute;
-	border: 1px solid black;
+  position: absolute;
+  z-index: -100;
 }
 
 #live-view {
   margin: 5px;
-  border: 1px solid black;
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   float: right;
 }
