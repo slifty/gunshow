@@ -1,4 +1,4 @@
-function Section(x, y, height, width) {
+function GunshowSection(x, y, height, width) {
 	this.x = x;
 	this.y = y;
 	this.height = height;
