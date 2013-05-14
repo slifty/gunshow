@@ -4,7 +4,8 @@
   // Create the defaults once
   var pluginName = "GunshowCharacter",
     defaults = {
-      walkSpeed: 100
+      walkSpeed: 100,
+      type: "roaming"
     };
 
   // The actual plugin constructor
@@ -32,34 +33,57 @@
     // Enable animation
     self.enableAnimation();
 
-    // Set up the walking control functionality
-    $(document).keydown(function(e) {
-      self.keys[e.which] = true;
+    if(self.options.type == "roaming") {
+      setInterval(function() {
+        switch(Math.floor(Math.random() * 5)) {
+          case 0:
+            self.keys[37] = true;
+            break;
+          case 1:
+            self.keys[38] = true;
+            break;
+          case 2:
+            self.keys[39] = true;
+            break;
+          case 3:
+            self.keys[40] = true;
+            break;
+          case 4: // Pause
+            break;
+        }
+        self.startWalking();
+        self.stopWalking();
+      }, 400);
+    }
 
-      var moveKey = false;
-      switch(e.which) {
-        case 37:
-        case 38:
-        case 39:
-        case 40:
-          moveKey = true;
-      }
+    if(self.options.type == "user") {
+      // Set up the walking control functionality
+      $(document).keydown(function(e) {
+        self.keys[e.which] = true;
 
-      // Delete movement if another key is pressed
-      if(!moveKey) self.stopWalking();
-      if(!self.moving) self.startWalking();
-    });
+        var moveKey = false;
+        switch(e.which) {
+          case 37:
+          case 38:
+          case 39:
+          case 40:
+            moveKey = true;
+        }
 
-    $(document).focus(function(e) {
-      console.log("BLUR");
-    });
+        // Delete movement if another key is pressed
+        if(!moveKey) self.stopWalking();
+        if(!self.moving) self.startWalking();
+      });
 
-    // KeyUp Function
-    $(document).keyup(function(e) {
-      delete self.keys[e.which];
-    });
+      $(document).focus(function(e) {
+        console.log("BLUR");
+      });
 
-    // KeyUp Function
+      // KeyUp Function
+      $(document).keyup(function(e) {
+        delete self.keys[e.which];
+      });
+    }
 
   }
 
@@ -73,21 +97,20 @@
       var self = this;
 
       if(self.space != null) {
-        var nearbyObjects = self.space.getNearbyObjects(self.leftDest, self.topDest);
-        for(var i in nearbyObjects) {
-          var nearbyObject = nearbyObjects[i];
-          if(nearbyObject instanceof GunshowBooth) {
-            // Enter the booth
+        if(self.options.type == "user") {
+          self.space.registerLocation(self.leftDest, self.topDest);
+          var nearbyObjects = self.space.getObjectsAt(self.leftDest, self.topDest);
+          for(var i in nearbyObjects) {
+            var nearbyObject = nearbyObjects[i];
+            if(nearbyObject instanceof GunshowBooth) {
+              // Enter the booth
+              console.log("booth");
+            }
 
-            nearbyObject.$el.html("<span id='on'>BOOTH</span>");
-          }
-
-          if(nearbyObject instanceof GunshowSection) {
-            var img = $('<img id="live-view-content">');
-            img.attr('src', '../images/images-4.jpeg');
-            img.attr('width', '150');
-            img.attr('height', '150');
-            img.appendTo('#live-view');
+            if(nearbyObject instanceof GunshowSection) {
+              // Enter the section
+              console.log("section")
+            }
           }
         }
       }
@@ -101,7 +124,7 @@
       delete self.keys[40];
     },
 
-    startWalking: function(direction) {
+    startWalking: function() {
       var self = this;
       var $character = $('#character');
       var moved = false;
@@ -166,7 +189,7 @@
       self.refresh();
     },
 
-    enterSpace: function(space) {
+    enterSpace: function(space, x, y) {
       var self = this;
 
       // Leave the current space
@@ -179,8 +202,8 @@
       self.spaces[space.id].space.addCharacter(self);
       self.space = self.spaces[space.id].space;
       self.moveTo(
-        self.spaces[space.id].x,
-        self.spaces[space.id].y,
+        x|self.spaces[space.id].x,
+        y|self.spaces[space.id].y,
         false);
     },
 

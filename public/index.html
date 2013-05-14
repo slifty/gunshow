@@ -21,14 +21,20 @@
           $floor.GunshowFloor(data);
 
           var $character = $("#character");
-          $character.GunshowCharacter();
+          $character.GunshowCharacter({ type: "user" });
+
+          var $roamingCharacter = $("#roaming_character");
+          $roamingCharacter.GunshowCharacter();
+
           $character.data("GunshowCharacter").enterSpace($floor.data("GunshowFloor"));
+          $roamingCharacter.data("GunshowCharacter").enterSpace($floor.data("GunshowFloor"), 100, 100);
         })
       })
     </script>
   </head>
   <body>
     <div id="character"></div>
+    <div id="roaming_character"></div>
     <div id="floor">
       <div id="live-view"></div>
     </div>

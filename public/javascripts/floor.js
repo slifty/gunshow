@@ -92,7 +92,7 @@
       }
       return overlaps;
     },
-    getNearbyObjects: function(x,y) {
+    getObjectsAt: function(x,y) {
       var self = this;
       return self.getSectionAt(x,y).concat(self.getBoothAt(x,y));
     },
@@ -101,9 +101,14 @@
       self.characters[character.id] = character;
       character.$el.remove()
         .appendTo(self.$el);
+
+      console.log(character.$el);
     },
     removeCharacter: function(character) {
       delete self.characters[character.id];
+    },
+    registerLocation: function(x,y) {
+      
     }
   };
 
