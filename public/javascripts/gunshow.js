@@ -41,6 +41,9 @@
         .height(self.options.floorHeight)
         .appendTo(self.$viewport);
 
+      // TODO -- this is a dirty hack to prevent manual booth encodings
+      self.$floor.append($('<img src="images/showfloor.png" />'));
+
       self.$presentation = $("<div />")
         .addClass("presentation")
         .hide()

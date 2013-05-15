@@ -1,8 +1,14 @@
 {
-  "floorHeight": "500",
-  "floorWidth": "600",
+  "floorHeight": "1400",
+  "floorWidth": "2000",
   "booths": [
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 520,
       "y": 540,
       "height": 160,
@@ -11,87 +17,152 @@
       "booth_url": "a people's history"
     },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 740,
       "y": 760,
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "century of gun ads"
-    }
+      "booth_url": "booths/gunads/index.html"
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 300,
       "y": 680,
       "height": 160,
       "width": 120,
       "background_url": "",
       "booth_url": "Debate forum"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 1180,
       "y": 760,
       "height": 160,
       "width": 80,
       "background_url": "",
       "booth_url": "First person shooter"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 1180,
       "y": 900,
       "height": 160,
       "width": 80,
       "background_url": "",
       "booth_url": "Gun laws state by state"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 740,
       "y": 980,
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "2012 year in review"
-    }
-        {
+      "booth_url": "http://embed.verite.co/timeline/?source=0Ai7XN-0-WqoYdHhSeVB3clFlcUpUNjhGWlA2Q0ZSaWc&font=Bevan-PotanoSans&maptype=toner&lang=en&height=650"
+    },
+    {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 1270,
       "y": 900,
       "height": 70,
       "width": 80,
       "background_url": "",
       "booth_url": "loophole"
-    }
-
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 740,
       "y": 540,
       "height": 160,
       "width": 160,
       "background_url": "",
       "booth_url": "Enthusiast"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 1180,
       "y": 540,
       "height": 160,
       "width": 160,
       "background_url": "",
       "booth_url": "Competitor"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 303,
       "y": 840,
       "height": 72,
       "width": 72,
       "background_url": "",
       "booth_url": "cam1"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 894,
       "y": 474,
       "height": 72,
       "width": 72,
       "background_url": "",
       "booth_url": "cam2"
-    }
+    },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 1180,
       "y": 1040,
       "height": 72,
@@ -100,6 +171,12 @@
       "booth_url": ""
     },
     {
+      "number": "",
+      "category": "",
+      "showTitle": false,
+      "title": "",
+      "description": "",
+      "attribution": "",
       "x": 1404,
       "y": 185,
       "height": 72,
