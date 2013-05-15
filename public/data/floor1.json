@@ -7,7 +7,7 @@
       "y": 10,
       "height": 198,
       "width": 270,
-      "background_url": "../images/wireframebooths/wireframebooth02.png",
+      "background_url": "images/wireframebooths/wireframebooth02.png",
       "booth_url": "http://www.thegpf.com"
     },
     {
@@ -15,7 +15,7 @@
       "y": 250,
       "height": 171,
       "width": 54,
-      "background_url": "../images/wireframebooths/wireframebooth07.png",
+      "background_url": "images/wireframebooths/wireframebooth07.png",
       "booth_url": "http://www.thegpf.com"
     }
   ],
