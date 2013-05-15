@@ -24,7 +24,6 @@
 
     self._defaults = defaults;
     self._name = pluginName;
-    self.id = ID_COUNTER++;
 
     self.init();
 

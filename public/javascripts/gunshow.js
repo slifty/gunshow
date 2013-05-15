@@ -1,6 +1,4 @@
 ;(function ( $, window, document, undefined ) {
-  var ID_COUNTER = 0;
-
   // Create the defaults once
   var pluginName = "Gunshow",
     defaults = {
@@ -20,7 +18,6 @@
 
     self._defaults = defaults;
     self._name = pluginName;
-    self.id = ID_COUNTER++;
 
     self.characters = [];
     self.currentBooth = null;
