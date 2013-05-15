@@ -1,6 +1,4 @@
 ;(function ( $, window, document, undefined ) {
-  var ID_COUNTER = 0;
-  
   // Create the defaults once
   var pluginName = "GunshowCharacter",
     defaults = {
@@ -59,6 +57,7 @@
     if(self.options.type == "user") {
       // Set up the walking control functionality
       $(window).keydown(function(e) {
+
         self.keys[e.which] = true;
 
         var moveKey = false;
@@ -69,6 +68,12 @@
           case 40:
             moveKey = true;
         }
+
+        conn.send(JSON.stringify({
+          'id': 0,
+          'top': $("#character").position().top,
+          'left': $("#character").position().left,
+        }));
 
         // Delete movement if another key is pressed
         if(!moveKey) self.stopWalking();

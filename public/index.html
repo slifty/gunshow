@@ -5,6 +5,12 @@
     <link href="stylesheets/gunshow.css" type="text/css" rel="stylesheet" />
     <link href="stylesheets/jquery.countdown.css" type="text/css" rel="stylesheet" />
 
+    <script type="text/javascript">
+    if ('WebSocket' in window) {
+      var ID_COUNTER = 0;
+      var conn = new WebSocket('ws://localhost:8888/socks');
+    }
+    </script>
     <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="lib/jquery.countdown.js"></script>
     <script type="text/javascript" src="lib/popcorn-complete.min.js"></script>
@@ -33,6 +39,24 @@
 
           $character.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"));
           $roamingCharacter.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"), 100, 100);
+
+          if ('WebSocket' in window) {
+            var remote_chars = {};
+            conn.onmessage = function(e) {
+              var data = JSON.parse(e.data);
+              if (!(data['id'] in remote_chars)) {
+                remote_chars[data['id']] = $("<div />")
+                  .GunshowCharacter({type: 'remote'})
+                  .data('GunshowCharacter');
+                remote_chars[data['id']].enterSpace($gunshow.data("Gunshow"), data['left'], data['top']);
+              } else {
+                remote_chars[data['id']].moveTo(data['left'], data['top']);
+              }
+            }
+            conn.onclose = function () {
+              console.log('connection closed');
+            }
+          }
         })
       });
 
@@ -63,7 +87,7 @@
     <div id="character"></div>
     <div id="roaming_character"></div>
     <div id="gunshow">
-        <div id="countdown"></div>
+      <div id="countdown"></div>
     </div>
   </body>
 </html>
