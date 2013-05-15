@@ -3,20 +3,109 @@
   "floorWidth": "600",
   "booths": [
     {
-      "x": 10,
-      "y": 10,
-      "height": 198,
-      "width": 270,
-      "background_url": "images/wireframebooths/wireframebooth02.png",
-      "booth_url": "http://www.armslist.com/classifieds/nevada"
+      "x": 520,
+      "y": 540,
+      "height": 160,
+      "width": 160,
+      "background_url": "",
+      "booth_url": "a people's history"
     },
     {
-      "x": 350,
-      "y": 250,
-      "height": 171,
-      "width": 54,
-      "background_url": "images/wireframebooths/wireframebooth07.png",
+      "x": 740,
+      "y": 760,
+      "height": 160,
+      "width": 160,
+      "background_url": "",
+      "booth_url": "century of gun ads"
+    }
+    {
+      "x": 300,
+      "y": 680,
+      "height": 160,
+      "width": 120,
+      "background_url": "",
+      "booth_url": "3"
+    }
+    {
+      "x": 1180,
+      "y": 760,
+      "height": 160,
+      "width": 80,
+      "background_url": "",
+      "booth_url": "4"
+    }
+    {
+      "x": 1180,
+      "y": 900,
+      "height": 160,
+      "width": 80,
+      "background_url": "",
+      "booth_url": "5"
+    }
+    {
+      "x": 740,
+      "y": 980,
+      "height": 160,
+      "width": 160,
+      "background_url": "",
+      "booth_url": "6"
+    }
+        {
+      "x": 1270,
+      "y": 900,
+      "height": 70,
+      "width": 80,
+      "background_url": "",
+      "booth_url": "loophole"
+    }
+
+    {
+      "x": 740,
+      "y": 540,
+      "height": 160,
+      "width": 160,
+      "background_url": "",
+      "booth_url": "Enthusiast"
+    }
+    {
+      "x": 1180,
+      "y": 540,
+      "height": 160,
+      "width": 160,
+      "background_url": "",
+      "booth_url": "Competitor"
+    }
+    {
+      "x": 303,
+      "y": 840,
+      "height": 72,
+      "width": 72,
+      "background_url": "",
+      "booth_url": "cam1"
+    }
+    {
+      "x": 894,
+      "y": 474,
+      "height": 72,
+      "width": 72,
+      "background_url": "",
+      "booth_url": "cam2"
+    }
+    {
+      "x": 1180,
+      "y": 1040,
+      "height": 72,
+      "width": 72,
+      "background_url": "cam3",
       "booth_url": "http://home.nra.org/"
+    }
+    {
+      "x": 1404,
+      "y": 185,
+      "height": 72,
+      "width": 72,
+      "background_url": "",
+      "booth_url": "cam4"
     }
   ],
   "sections": [
