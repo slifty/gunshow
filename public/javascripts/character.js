@@ -100,17 +100,23 @@
         if(self.options.type == "user") {
           self.space.setFocus(self.leftDest, self.topDest);
           var nearbyObjects = self.space.getObjectsAt(self.leftDest, self.topDest);
+          var inBooth = false;
+          var inSection = false;
           for(var i in nearbyObjects) {
             var nearbyObject = nearbyObjects[i];
             if(nearbyObject instanceof GunshowBooth) {
               // Enter the booth
-              self.currentBooth = nearbyObject;
+              self.space.enterBooth(nearbyObject);
+              inBooth = true;
             }
 
             if(nearbyObject instanceof GunshowSection) {
               // Enter the section
+              inSection = true;
             }
           }
+          if(!inBooth)
+            self.space.exitBooth();
         }
       }
     },

@@ -2,7 +2,7 @@
   <head>
     <title>Scratch Pad!</title>
     <link href="stylesheets/style.css" type="text/css" rel="stylesheet" />
-    <link href="stylesheets/floor.css" type="text/css" rel="stylesheet" />
+    <link href="stylesheets/gunshow.css" type="text/css" rel="stylesheet" />
     <link href="stylesheets/jquery.countdown.css" type="text/css" rel="stylesheet" />
 
     <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
@@ -10,7 +10,7 @@
     <script type="text/javascript" src="lib/popcorn-complete.min.js"></script>
     <script type="text/javascript" src="javascripts/classes/booth.js"></script>
     <script type="text/javascript" src="javascripts/classes/section.js"></script>
-    <script type="text/javascript" src="javascripts/floor.js"></script>
+    <script type="text/javascript" src="javascripts/gunshow.js"></script>
     <script type="text/javascript" src="javascripts/character.js"></script>
 
     <script type="text/javascript">
@@ -22,8 +22,8 @@
           "dataType": "JSON"
         })
         .done(function(data) {
-          var $floor = $("#floor");
-          $floor.GunshowFloor(data);
+          var $gunshow = $("#gunshow");
+          $gunshow.Gunshow(data);
 
           var $character = $("#character");
           $character.GunshowCharacter({ type: "user" });
@@ -31,8 +31,8 @@
           var $roamingCharacter = $("#roaming_character");
           $roamingCharacter.GunshowCharacter();
 
-          $character.data("GunshowCharacter").enterSpace($floor.data("GunshowFloor"));
-          $roamingCharacter.data("GunshowCharacter").enterSpace($floor.data("GunshowFloor"), 100, 100);
+          $character.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"));
+          $roamingCharacter.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"), 100, 100);
         })
       });
 
@@ -62,7 +62,8 @@
   <body>
     <div id="character"></div>
     <div id="roaming_character"></div>
-    <div id="countdown"></div>
-    <div id="floor"></div>
+    <div id="gunshow">
+        <div id="countdown"></div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,52 @@
+.floor {
+  background-image: url("../images/binding_light.png");
+  background-repeat: repeat;
+  overflow: auto;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.booth {
+  position: absolute;
+}
+
+.live-view {
+  margin: 5px;
+  float: right;
+}
+
+.viewport {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+
+.character {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 15px;
+  width: 15px;
+  background-color: #b8ff5c;
+}
+
+.presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  z-index: 0;
+}
+.presentation iframe {
+  height: 100%;
+  width: 80%;
+  margin: 0px 10%;
+}
+
+#countdown {
+  float: right;
+}

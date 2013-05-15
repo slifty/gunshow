@@ -13,11 +13,7 @@ a {
  * Character styling
  */
 
-.character {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 15px;
-  width: 15px;
-  background-color: #b8ff5c;
+#gunshow {
+  height: 100%;
+  width: 100%;
 }
