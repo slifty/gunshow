@@ -1,3 +1,6 @@
+import os
+import uuid
+
 import tornado.web
 from tornado.ioloop import IOLoop
 from tornado.websocket import WebSocketHandler
@@ -12,25 +15,26 @@ class MainHandler(tornado.web.RequestHandler):
 class InteractionHandler(WebSocketHandler):
   """
   Handles all websocket connections and messages
+  NOTE:: self is the client connection
   """
 
   def open(self, doc):
     print 'Connection opened!'
-    self.doc = doc
-    if doc not in doc_clients:
-      doc_clients[doc] = set()
-    doc_clients[doc].add(self)
+    if self not in doc_clients:
+      doc_clients[self] = str(uuid.uuid1())
     print 'Connections: %s' % doc_clients
 
   def on_message(self, msg):
-    print msg
-    for c in doc_clients[self.doc]:
+    # unicode -> dict
+    msg = eval(msg)
+    msg['id'] = doc_clients[self]
+    for c in doc_clients.keys():
       if c is not self:
         c.write_message(msg)
 
   def on_close(self):
     print 'Connection closed!'
-    doc_clients[self.doc].remove(self)
+    doc_clients.pop(self, 0)
     print 'Connections: %s' % doc_clients
 
 

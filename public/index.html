@@ -42,19 +42,24 @@
 
           if ('WebSocket' in window) {
             var remote_chars = {};
+            var id;
             conn.onmessage = function(e) {
               var data = JSON.parse(e.data);
-              if (!(data['id'] in remote_chars)) {
-                remote_chars[data['id']] = $("<div />")
+              id = data['id'];
+              if (!(id in remote_chars)) {
+                remote_chars[id] = $("<div />")
                   .GunshowCharacter({type: 'remote'})
                   .data('GunshowCharacter');
-                remote_chars[data['id']].enterSpace($gunshow.data("Gunshow"), data['left'], data['top']);
+                remote_chars[id].enterSpace($gunshow.data("Gunshow"), data['left'], data['top']);
               } else {
-                remote_chars[data['id']].moveTo(data['left'], data['top']);
+                console.log(data);
+                remote_chars[id].moveTo(data['left'], data['top']);
               }
             }
-            conn.onclose = function () {
-              console.log('connection closed');
+            conn.onclose = function (e) {
+              remote_chars[id].leaveSpace($gunshow.data("Gunshow"));
+              delete remote_chars[id];
+              console.log(id + ' has left the room.');
             }
           }
         })

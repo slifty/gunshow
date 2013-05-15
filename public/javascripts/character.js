@@ -70,7 +70,6 @@
         }
 
         conn.send(JSON.stringify({
-          'id': 0,
           'top': $("#character").position().top,
           'left': $("#character").position().left,
         }));
