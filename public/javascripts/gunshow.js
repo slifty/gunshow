@@ -169,9 +169,9 @@
           booth.height,
           booth.width
         );
-
-        self.$presentation.html("<iframe src='" + booth.booth_url + "' frameBorder='0'></iframe>")
-          .fadeIn(1000);
+        self.$presentation
+          .fadeIn(1000, 
+            function() { $(this).html("<iframe src='" + booth.booth_url + "' frameBorder='0'></iframe>") });
       }
     },
 

@@ -58,7 +58,7 @@
 
     if(self.options.type == "user") {
       // Set up the walking control functionality
-      $(document).keydown(function(e) {
+      $(window).keydown(function(e) {
         self.keys[e.which] = true;
 
         var moveKey = false;
@@ -75,12 +75,8 @@
         if(!self.moving) self.startWalking();
       });
 
-      $(document).focus(function(e) {
-        console.log("BLUR");
-      });
-
       // KeyUp Function
-      $(document).keyup(function(e) {
+      $(window).keyup(function(e) {
         delete self.keys[e.which];
       });
     }
