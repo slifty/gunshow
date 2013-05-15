@@ -146,8 +146,8 @@
           self.liveView.data("videoURL", section.video_url)
           self.liveView.empty();
           if(section.video_url != "") {
-            //var video = Popcorn.vimeo('.live-view', section.video_url + "?loop=1");
-            //video.play();
+            var video = Popcorn.vimeo('.live-view', section.video_url + "?loop=1");
+            video.play();
           }
         }
       } else {
