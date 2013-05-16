@@ -82,3 +82,16 @@
 .info-bar h1 {
   color: #fff;
 }
+
+#intro-input {
+  position: absolute;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  color: white;
+  /* need to position correctly */
+  top: 250px;
+  left: 685px;
+  height: 30px;
+  width: 110px;
+}
