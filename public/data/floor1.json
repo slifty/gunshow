@@ -3,7 +3,7 @@
   "floorWidth": "2000",
   "booths": [
     {
-      "number": "",
+      "number": "1000",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -17,7 +17,7 @@
       "booth_url": "a people's history"
     },
     {
-      "number": "",
+      "number": "1001",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -31,7 +31,7 @@
       "booth_url": "booths/gunads/index.html"
     },
     {
-      "number": "",
+      "number": "1002",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -45,7 +45,7 @@
       "booth_url": "Debate forum"
     },
     {
-      "number": "",
+      "number": "1003",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -59,7 +59,7 @@
       "booth_url": "First person shooter"
     },
     {
-      "number": "",
+      "number": "1004",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -73,7 +73,7 @@
       "booth_url": "Gun laws state by state"
     },
     {
-      "number": "",
+      "number": "1005",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -87,7 +87,7 @@
       "booth_url": "http://embed.verite.co/timeline/?source=0Ai7XN-0-WqoYdHhSeVB3clFlcUpUNjhGWlA2Q0ZSaWc&font=Bevan-PotanoSans&maptype=toner&lang=en&height=650"
     },
     {
-      "number": "",
+      "number": "1006",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -101,7 +101,7 @@
       "booth_url": "loophole"
     },
     {
-      "number": "",
+      "number": "1007",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -115,7 +115,7 @@
       "booth_url": "Enthusiast"
     },
     {
-      "number": "",
+      "number": "1008",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -129,7 +129,7 @@
       "booth_url": "Competitor"
     },
     {
-      "number": "",
+      "number": "1009",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -143,7 +143,7 @@
       "booth_url": "cam1"
     },
     {
-      "number": "",
+      "number": "1010",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -157,7 +157,7 @@
       "booth_url": "cam2"
     },
     {
-      "number": "",
+      "number": "1011",
       "category": "",
       "showTitle": false,
       "title": "",
@@ -171,7 +171,7 @@
       "booth_url": ""
     },
     {
-      "number": "",
+      "number": "1012",
       "category": "",
       "showTitle": false,
       "title": "",

@@ -33,13 +33,18 @@
 
       self.$viewport = $("<div />")
         .addClass("viewport")
+        .css("transition", "margin-left 1s, height 1s, width 1s, bottom 1s, left 1s")
         .appendTo(self.$el);
 
       self.$floor = $("<div />")
         .addClass("floor")
+        .css("transition", "top 1s, left 1s")
         .width(self.options.floorWidth)
         .height(self.options.floorHeight)
         .appendTo(self.$viewport);
+
+      self.floorOffsetLeft = 0;
+      self.floorOffsetTop = 0;
 
       // TODO -- this is a dirty hack to prevent manual booth encodings
       self.$floor.append($('<img src="images/showfloor.png" />'));
@@ -140,22 +145,53 @@
     removeCharacter: function(character) {
       delete self.characters[character.id];
     },
-    setFocus: function(x,y) {
+
+    setFloorOffset: function(left, top) {
+      var self = this;
+      left = Math.min(self.options.floorWidth - $(document).width(), left);
+      top = Math.min(self.options.floorHeight - $(document).height(), top);
+      left = Math.max(0, left);
+      top = Math.max(0, top);
+      self.floorOffsetTop = top;
+      self.floorOffsetLeft = left;
+      self.$floor.css("top", -self.floorOffsetTop);
+      self.$floor.css("left", -self.floorOffsetLeft);
+    },
+
+    setCharacterPosition: function(x,y) {
       var self = this;
       var sections = self.getSectionAt(x,y);
       if(sections.length > 0) {
         var section = sections[0];
-        if(self.liveView.data("videoURL") != section.video_url) {
-          self.liveView.data("videoURL", section.video_url)
-          self.liveView.empty();
-          if(section.video_url != "") {
-            var video = Popcorn.vimeo('.live-view', section.video_url + "?loop=1");
-            video.play();
-          }
-        }
       } else {
-        self.liveView.empty();
-        self.liveView.data("videoURL", "")
+      }
+
+      var newOffset = false;
+      var newOffsetTop = self.floorOffsetTop;
+      var newOffsetLeft = self.floorOffsetLeft;
+
+      if((x - self.floorOffsetLeft) > ($(document).width() * .8)) {
+        // Scrolling to the right
+        newOffsetLeft = self.floorOffsetLeft + $(document).width() * .2;
+        newOffset = true;
+      } else if((x - self.floorOffsetLeft) < ($(document).width() * .2)) {
+        // Scrolling to the left
+        newOffsetLeft = self.floorOffsetLeft - $(document).width() * .2;
+        newOffset = true;
+      }
+
+      if((y - self.floorOffsetTop) > ($(document).height() * .8)) {
+        // Scrolling down
+        newOffsetTop = self.floorOffsetTop + $(document).height() * .2;
+        newOffset = true;
+      } else if((y - self.floorOffsetTop) < ($(document).height() * .2)) {
+        // Scrolling up
+        newOffsetTop = self.floorOffsetTop - $(document).height() * .2;
+        newOffset = true;
+      }
+
+      if(newOffset && self.currentBooth == null) {
+        self.setFloorOffset(newOffsetLeft, newOffsetTop);
       }
     },
 
@@ -192,14 +228,12 @@
 
     setViewport: function(x, y, height, width) {
       var self = this;
-      self.$viewport.css("transition", "margin-left 1s, height 1s, width 1s, bottom 1s, left 1s");
-      self.$floor.css("transition", "top 1s, left 1s");
       self.$viewport.css("height", height);
       self.$viewport.css("width", width);
       self.$viewport.css("bottom", height=="100%"?0:10);
       self.$viewport.css("left", width == "100%"?0:($(document).width() - width) / 2);
-      self.$floor.css("top", -y);
-      self.$floor.css("left", -x);
+      self.$floor.css("top", -(y + (width=="100%"?self.floorOffsetTop:0)));
+      self.$floor.css("left", -(x + (width=="100%"?self.floorOffsetLeft:0)));
     }
   };
 

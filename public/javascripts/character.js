@@ -97,7 +97,7 @@
 
       if(self.space != null) {
         if(self.options.type == "user") {
-          self.space.setFocus(self.leftDest, self.topDest);
+          self.space.setCharacterPosition(self.leftDest, self.topDest);
           var nearbyObjects = self.space.getObjectsAt(self.leftDest, self.topDest);
           var inBooth = false;
           var inSection = false;
