@@ -228,6 +228,7 @@
         self.currentBooth = booth;
 
         self.$infoBar.html("<h1>" + booth.title + "</h1>")
+          .slideDown(1000, function(){ setTimeout(function(){ self.$infoBar.fadeOut(1000)},3000) })
 
         self.setViewport(
           booth.x,
@@ -238,6 +239,16 @@
         self.$presentation
           .fadeIn(1000, 
             function() { $(this).html("<iframe src='" + booth.booth_url + "' frameBorder='0'></iframe>") });
+
+        var iFrameHack = function() {
+          // This keeps the arrow keys controlling the avatar.
+          // It also prevents the ability to input text. and therefore this isn't a long terms olution
+          // TODO -- find a better way.
+          if(self.currentBooth == null) return;
+          window.focus();
+          setTimeout(iFrameHack, 1000);
+        }
+        iFrameHack();
       }
     },
 
@@ -253,6 +264,7 @@
         );
         self.$presentation.empty()
           .fadeOut(1000);
+        self.$infoBar.fadeOut(1000)
       }
     },
 

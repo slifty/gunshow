@@ -14,7 +14,7 @@
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "http://vimeo.com/66272809"
+      "booth_url": "booths/peopleshistory/index.html"
     },
     {
       "number": "1001",
@@ -39,8 +39,8 @@
       "attribution": "",
       "x": 300,
       "y": 680,
-      "height": 160,
-      "width": 120,
+      "height": 120,
+      "width": 160,
       "background_url": "",
       "booth_url": ""
     },
@@ -53,8 +53,8 @@
       "attribution": "",
       "x": 1180,
       "y": 760,
-      "height": 160,
-      "width": 80,
+      "height": 80,
+      "width": 160,
       "background_url": "",
       "booth_url": ""
     },
@@ -64,13 +64,13 @@
       "show_title": false,
       "title": "Gun Laws by State",
       "description": "",
-      "attribution": "",
+      "attribution": "Mother Jones",
       "x": 1180,
       "y": 900,
-      "height": 160,
+      "height": 80,
       "width": 80,
       "background_url": "",
-      "booth_url": "file://localhost/Users/tonygerber01/Desktop/GUN%20SHOW/easing%20restrictions_Mother%20Jones.tiff"
+      "booth_url": "http://a.tiles.mapbox.com/v3/tasneemraja.map-76zvpwj5.html#4.00/33.72/-98.36"
     },
     {
       "number": "1005",
@@ -95,10 +95,24 @@
       "attribution": "",
       "x": 1270,
       "y": 900,
-      "height": 70,
-      "width": 80,
+      "height": 80,
+      "width": 70,
       "background_url": "",
       "booth_url": "http://www.youtube.com/watch?v=YQEDvqmAfqg"
+    },
+    {
+      "number": "1007",
+      "category": "",
+      "show_title": false,
+      "title": "Mapped Shootings",
+      "description": "",
+      "attribution": "Mother Jones",
+      "x": 740,
+      "y": 320,
+      "height": 160,
+      "width": 160,
+      "background_url": "",
+      "booth_url": "http://a.tiles.mapbox.com/v3/tasneemraja.map-37egcsuk.html#4.00/38.96/-99.51"
     },
     {
       "number": "2001",
@@ -112,7 +126,7 @@
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": ""
+      "booth_url": "booths/enthusiast/index.html"
     },
     {
       "number": "2000",
@@ -126,7 +140,7 @@
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "http://vimeo.com/66272811"
+      "booth_url": "booths/competitor/index.html"
     },
     {
       "number": "",
