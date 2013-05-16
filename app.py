@@ -36,7 +36,7 @@ class InteractionHandler(WebSocketHandler):
 
 
 application = tornado.web.Application([
-  (r"/socks/(.+)", InteractionHandler),
+  (r"/socks(.*)", InteractionHandler),
   (r"/()", tornado.web.StaticFileHandler, {'path': "static/index.html"} ),
   (r"/(.+)", tornado.web.StaticFileHandler, {'path': "static"} )
 ])
