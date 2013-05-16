@@ -10,7 +10,7 @@ doc_clients = {}
 
 class MainHandler(tornado.web.RequestHandler):
   def get(self):
-    self.write("Hello World")
+    self.render('index.html')
 
 class InteractionHandler(WebSocketHandler):
   """
@@ -41,11 +41,11 @@ class InteractionHandler(WebSocketHandler):
 
 application = tornado.web.Application([
   (r"/(.+)", InteractionHandler),
-  (r"/", MainHandler),
-])
+  (r"/", MainHandler)
+], template_path='templates', static_path='static'
 
 
 if __name__ == "__main__":
-  application.listen(8888)
+  application.listen(8888, address="0.0.0.0")
   IOLoop.instance().start()
 
