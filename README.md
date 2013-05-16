@@ -2,6 +2,11 @@ Gun Show
 ==============
 An interactive narrative to help viewers empathetically understand the US gun debate.
 
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt (easy_install pip)
+python app.py
+
 Floor Object
 ----------------
 The convention is defined in json in the following format:
