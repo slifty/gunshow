@@ -170,6 +170,7 @@
         .appendTo(self.$floor);
     },
     removeCharacter: function(character) {
+      character.$el.remove()
       delete self.characters[character.id];
     },
 

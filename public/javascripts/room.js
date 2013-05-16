@@ -111,6 +111,7 @@
         .appendTo(self.$el);
     },
     removeCharacter: function(character) {
+      character.$el.remove();
       delete self.characters[character.id];
     },
     setFocus: function(x,y) {
