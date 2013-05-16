@@ -8,10 +8,6 @@ from tornado.websocket import WebSocketHandler
 # process-global set of per-document connected clients
 doc_clients = {}
 
-class MainHandler(tornado.web.RequestHandler):
-  def get(self):
-    self.render('index.html')
-
 class InteractionHandler(WebSocketHandler):
   """
   Handles all websocket connections and messages
@@ -40,9 +36,10 @@ class InteractionHandler(WebSocketHandler):
 
 
 application = tornado.web.Application([
-  (r"/(.+)", InteractionHandler),
-  (r"/", MainHandler)
-], template_path='templates', static_path='static'
+  (r"/socks/(.+)", InteractionHandler),
+  (r"/()", tornado.web.StaticFileHandler, {'path': "static/index.html"} ),
+  (r"/(.+)", tornado.web.StaticFileHandler, {'path': "static"} )
+])
 
 
 if __name__ == "__main__":
