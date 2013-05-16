@@ -22,6 +22,7 @@ class InteractionHandler(WebSocketHandler):
     print 'Connection opened!'
     if self not in doc_clients:
       doc_clients[self] = str(uuid.uuid1())
+    self.write_message({'id':doc_clients[self]})
     print 'Connections: %s' % doc_clients
 
   def on_message(self, msg):
