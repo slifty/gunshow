@@ -42,7 +42,7 @@ class InteractionHandler(WebSocketHandler):
 application = tornado.web.Application([
   (r"/(.+)", InteractionHandler),
   (r"/", MainHandler)
-], template_path='templates', static_path='static'
+], template_path='templates', static_path='static')
 
 
 if __name__ == "__main__":
