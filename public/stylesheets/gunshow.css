@@ -31,7 +31,9 @@
   left: 0px;
   height: 15px;
   width: 15px;
-  background-color: #b8ff5c;
+  border-radius: 15px;
+  border: 2px solid #007eaa;
+  background-color: #00b1ff;
 }
 
 .presentation {
@@ -49,4 +51,21 @@
 
 #countdown {
   float: right;
+}
+
+.booth-number {
+  background-color: #0930D0;
+  padding: 2px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+.booth-title {
+  background-color: #0930D0;
+  padding: 2px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 4px;
 }

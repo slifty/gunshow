@@ -36,7 +36,7 @@
           var $roamingCharacter = $("#roaming_character");
           $roamingCharacter.GunshowCharacter();
 
-          $character.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"));
+          $character.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"), 600, 800);
           $roamingCharacter.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"), 100, 100);
 
           if ('WebSocket' in window) {
@@ -88,10 +88,18 @@
     </script>
   </head>
   <body>
+    <div id="navigation">
+      <ul>
+        <li class="logo"><a></a></li>
+        <li class="guided-tours"><a></a></li>
+        <li class="create-booth"><a></a></li>
+        <li class="about-show"><a></a></li>
+        <li class="contact-us"><a></a></li>
+      </ul>
+    </div>
     <div id="character"></div>
     <div id="roaming_character"></div>
-    <div id="gunshow">
-      <div id="countdown"></div>
-    </div>
+    <div id="gunshow"></div>
+    <div id="countdown"></div>
   </body>
 </html>

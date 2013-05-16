@@ -5,8 +5,8 @@
     {
       "number": "1000",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "A People's History of the AK47",
       "description": "",
       "attribution": "",
       "x": 520,
@@ -14,13 +14,13 @@
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "a people's history"
+      "booth_url": "http://vimeo.com/66272809"
     },
     {
       "number": "1001",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "A Century of Gun Ads",
       "description": "",
       "attribution": "",
       "x": 740,
@@ -33,8 +33,8 @@
     {
       "number": "1002",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Debate Forum",
       "description": "",
       "attribution": "",
       "x": 300,
@@ -42,13 +42,13 @@
       "height": 160,
       "width": 120,
       "background_url": "",
-      "booth_url": "Debate forum"
+      "booth_url": ""
     },
     {
       "number": "1003",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "First person shooter",
       "description": "",
       "attribution": "",
       "x": 1180,
@@ -56,13 +56,13 @@
       "height": 160,
       "width": 80,
       "background_url": "",
-      "booth_url": "First person shooter"
+      "booth_url": ""
     },
     {
       "number": "1004",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Gun Laws by State",
       "description": "",
       "attribution": "",
       "x": 1180,
@@ -70,13 +70,13 @@
       "height": 160,
       "width": 80,
       "background_url": "",
-      "booth_url": "Gun laws state by state"
+      "booth_url": "file://localhost/Users/tonygerber01/Desktop/GUN%20SHOW/easing%20restrictions_Mother%20Jones.tiff"
     },
     {
       "number": "1005",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "2012 Shootings",
       "description": "",
       "attribution": "",
       "x": 740,
@@ -89,8 +89,8 @@
     {
       "number": "1006",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Loophole",
       "description": "",
       "attribution": "",
       "x": 1270,
@@ -98,13 +98,13 @@
       "height": 70,
       "width": 80,
       "background_url": "",
-      "booth_url": "loophole"
+      "booth_url": "http://www.youtube.com/watch?v=YQEDvqmAfqg"
     },
     {
-      "number": "1007",
-      "category": "",
-      "showTitle": false,
-      "title": "",
+      "number": "2001",
+      "category": "character",
+      "show_title": true,
+      "title": "The Enthusiast",
       "description": "",
       "attribution": "",
       "x": 740,
@@ -112,13 +112,13 @@
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "Enthusiast"
+      "booth_url": ""
     },
     {
-      "number": "1008",
-      "category": "",
-      "showTitle": false,
-      "title": "",
+      "number": "2000",
+      "category": "character",
+      "show_title": true,
+      "title": "The Competitor",
       "description": "",
       "attribution": "",
       "x": 1180,
@@ -126,13 +126,13 @@
       "height": 160,
       "width": 160,
       "background_url": "",
-      "booth_url": "Competitor"
+      "booth_url": "http://vimeo.com/66272811"
     },
     {
-      "number": "1009",
+      "number": "",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Cam 1",
       "description": "",
       "attribution": "",
       "x": 303,
@@ -140,13 +140,13 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": "cam1"
+      "booth_url": ""
     },
     {
-      "number": "1010",
+      "number": "",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Cam 2",
       "description": "",
       "attribution": "",
       "x": 894,
@@ -154,27 +154,27 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": "cam2"
+      "booth_url": ""
     },
     {
-      "number": "1011",
+      "number": "",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Cam 3",
       "description": "",
       "attribution": "",
       "x": 1180,
       "y": 1040,
       "height": 72,
       "width": 72,
-      "background_url": "cam3",
+      "background_url": "",
       "booth_url": ""
     },
     {
-      "number": "1012",
+      "number": "",
       "category": "",
-      "showTitle": false,
-      "title": "",
+      "show_title": false,
+      "title": "Cam 4",
       "description": "",
       "attribution": "",
       "x": 1404,
@@ -182,7 +182,7 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": "cam4"
+      "booth_url": ""
     }
   ],
   "sections": [

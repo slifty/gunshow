@@ -53,6 +53,13 @@
         .addClass("presentation")
         .hide()
         .appendTo(self.$el);
+
+
+      // Create the info bar
+      self.$infoBar = $("<div />")
+        .addClass("info-bar")
+        .hide()
+        .appendTo(self.el);
       
 
       // Register booths
@@ -67,6 +74,9 @@
           self.options.booths[i].width);
         booth.background_url = self.options.booths[i].background_url;
         booth.booth_url = self.options.booths[i].booth_url;
+        booth.number = self.options.booths[i].number;
+        booth.title = self.options.booths[i].title;
+        booth.show_title = self.options.booths[i].show_title;
 
         // Create the visual object
         var $booth = $("<div />")
@@ -84,6 +94,23 @@
           .css("max-width", "100%")
           .css("max-height", "100%")
           .appendTo($booth);
+
+        // Booth Number
+        if(booth.number != "") {
+          var $booth_number = $("<div />")
+            .addClass("booth-number")
+            .html(booth.number)
+            .appendTo($booth);
+        }
+
+        // Booth Title
+        if(booth.show_title) {
+          $booth.append("<br />");
+          var $booth_title = $("<div />")
+            .addClass("booth-title")
+            .html(booth.title)
+            .appendTo($booth)
+        }
 
         booth.$el = $booth;
         self.options.booths[i] = booth;
@@ -199,6 +226,9 @@
       var self = this;
       if(self.currentBooth != booth) {
         self.currentBooth = booth;
+
+        self.$infoBar.html("<h1>" + booth.title + "</h1>")
+
         self.setViewport(
           booth.x,
           booth.y,
@@ -228,12 +258,13 @@
 
     setViewport: function(x, y, height, width) {
       var self = this;
-      self.$viewport.css("height", height);
-      self.$viewport.css("width", width);
-      self.$viewport.css("bottom", height=="100%"?0:10);
-      self.$viewport.css("left", width == "100%"?0:($(document).width() - width) / 2);
-      self.$floor.css("top", -(y + (width=="100%"?self.floorOffsetTop:0)));
-      self.$floor.css("left", -(x + (width=="100%"?self.floorOffsetLeft:0)));
+      console.log(height);
+      self.$viewport.css("height", height=="100%"?height:(height + 20));
+      self.$viewport.css("width", width=="100%"?width:(width  + 20));
+      self.$viewport.css("top", 0);
+      self.$viewport.css("left", 0);
+      self.$floor.css("top", -(y + (width=="100%"?self.floorOffsetTop:(-10))));
+      self.$floor.css("left", -(x + (width=="100%"?self.floorOffsetLeft:(-10))));
     }
   };
 

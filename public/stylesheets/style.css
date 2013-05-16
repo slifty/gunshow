@@ -14,6 +14,29 @@ a {
  */
 
 #gunshow {
+  position: fixed;
+  top: 50px;
+  left: 0px;
   height: 100%;
   width: 100%;
+}
+
+#navigation {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 50px;
+	background: #000;
+	width: 100%;
+	z-index: 3;
+}
+#navigation li { list-style: none; float: left; }
+#navigation li.logo a { display: block; height: 26px; width: 160; background: url('../images/menubar.png') 0 0;}
+#navigation li.guided-tours a { display: block; height: 26px; width: 130; background: url('../images/menubar.png') -192 0; margin-left: 50px; }
+#navigation li.create-booth a { display: block; height: 26px; width: 155; background: url('../images/menubar.png') -350 0; margin-left: 50px; }
+#navigation li.about-show a { display: block; height: 26px; width: 160; background: url('../images/menubar.png') -525 0; margin-left: 50px; }
+#navigation li.contact-us a { display: block; height: 26px; width: 110; background: url('../images/menubar.png') -715 0; margin-left: 50px; }
+
+#countdown {
+	display: none;
 }

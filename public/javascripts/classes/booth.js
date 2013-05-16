@@ -5,4 +5,5 @@ function GunshowBooth(x, y, height, width) {
 	this.width = width;
 	this.background_url = "";
 	this.booth_url = "";
+	this.number = "";
 }
