@@ -36,6 +36,16 @@
   background-color: #00b1ff;
 }
 
+.character .character-label {
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #007eaa;
+  background-color: #00b1ff;
+}
+
 .presentation {
   position: absolute;
   height: 100%;
@@ -68,6 +78,7 @@
   color: #fff;
   display: inline-block;
   margin-left: 4px;
+  text-transform: uppercase;
 }
 
 .info-bar {

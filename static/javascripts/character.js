@@ -3,7 +3,8 @@
   var pluginName = "GunshowCharacter",
     defaults = {
       walkSpeed: 100,
-      type: "roaming"
+      type: "roaming",
+      label: ""
     };
 
   // The actual plugin constructor
@@ -26,6 +27,14 @@
     self._name = pluginName;
 
     self.init();
+
+    // Character label
+    if(self.options.label != "") {
+      self.$label = $("<div />")
+        .addClass("character-label")
+        .html(self.options.label)
+        .appendTo(self.$el);
+    }
 
     // Enable animation
     self.enableAnimation();
@@ -71,6 +80,7 @@
         conn.send(JSON.stringify({
           'top': $("#character").position().top,
           'left': $("#character").position().left,
+          'label': self.options.label,
         }));
 
         // Delete movement if another key is pressed
@@ -212,6 +222,7 @@
     },
 
     leaveSpace: function(space) {
+      var self = this;
       if(self.space != null) {
         self.spaces[space.id].x = self.leftDest;
         self.spaces[space.id].y = self.topDest;

@@ -31,8 +31,13 @@ class InteractionHandler(WebSocketHandler):
 
   def on_close(self):
     print 'Connection closed!'
+    msg = {}
+    msg['id'] = doc_clients[self]
+    msg['closing'] = True
+    for c in doc_clients.keys():
+      if c is not self:
+        c.write_message(msg)
     doc_clients.pop(self, 0)
-    print 'Connections: %s' % doc_clients
 
 
 application = tornado.web.Application([

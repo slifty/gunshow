@@ -170,7 +170,8 @@
         .appendTo(self.$floor);
     },
     removeCharacter: function(character) {
-      character.$el.remove()
+      var self = this;
+      character.$el.remove();
       delete self.characters[character.id];
     },
 
@@ -255,6 +256,7 @@
 
     exitBooth: function() {
       var self = this;
+      self.$presentation.empty();
       if(self.currentBooth != null) {
         self.currentBooth = null;
         self.setViewport(
@@ -263,15 +265,13 @@
           "100%",
           "100%"
         );
-        self.$presentation.empty()
-          .fadeOut(1000);
+        self.$presentation.fadeOut(1000);
         self.$infoBar.fadeOut(1000)
       }
     },
 
     setViewport: function(x, y, height, width) {
       var self = this;
-      console.log(height);
       self.$viewport.css("height", height=="100%"?height:(height + 20));
       self.$viewport.css("width", width=="100%"?width:(width  + 20));
       self.$viewport.css("top", 0);

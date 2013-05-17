@@ -7,7 +7,15 @@
 
     <script type="text/javascript">
     if ('WebSocket' in window) {
-      var conn = new WebSocket('ws://localhost:8888/socks');
+      var loc = window.location, new_uri;
+      if (loc.protocol === "https:") {
+          new_uri = "wss:";
+      } else {
+          new_uri = "ws:";
+      }
+      new_uri += "//" + loc.host;
+      new_uri += loc.pathname + "socks";
+      var conn = new WebSocket(new_uri);
     }
     </script>
     <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
@@ -31,7 +39,10 @@
           $gunshow.Gunshow(data);
 
           var $character = $("#character");
-          $character.GunshowCharacter({ type: "user" });
+          $character.GunshowCharacter({
+            type: "user",
+            label: "TEST" 
+          });
 
           var $roamingCharacter = $("#roaming_character");
           $roamingCharacter.GunshowCharacter();
@@ -47,19 +58,18 @@
               id = data['id'];
               if (!(id in remote_chars)) {
                 remote_chars[id] = $("<div />")
-                  .GunshowCharacter({type: 'remote'})
+                  .GunshowCharacter({
+                    type: 'remote',
+                    label: data['label']
+                  })
                   .data('GunshowCharacter');
                 remote_chars[id].enterSpace($gunshow.data("Gunshow"), data['left'], data['top']);
+              } else if ("closing" in data) {
+                remote_chars[id].leaveSpace($gunshow.data("Gunshow"));
+                delete remote_chars[id];
               } else {
-                console.log(data);
                 remote_chars[id].moveTo(data['left'], data['top']);
               }
-            }
-            conn.onclose = function (e) {
-              console.log(remote_chars);
-              remote_chars[id].leaveSpace($gunshow.data("Gunshow"));
-              delete remote_chars[id];
-              console.log(id + ' has left the room.');
             }
           }
         })
