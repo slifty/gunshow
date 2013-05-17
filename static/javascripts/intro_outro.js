@@ -21,6 +21,8 @@ $(document).ready(function() {
 
     // Delete the video
     $("#intro-vid").remove();
+    // Play background noise
+    //$("#background-audio").play();
 
     // load booth and section data (JSON)
     $(function() {
