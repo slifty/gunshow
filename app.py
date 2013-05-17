@@ -48,6 +48,6 @@ application = tornado.web.Application([
 
 
 if __name__ == "__main__":
-  application.listen(8888, address="0.0.0.0")
+  application.listen(80, address="0.0.0.0")
   IOLoop.instance().start()
 

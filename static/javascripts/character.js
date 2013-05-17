@@ -32,7 +32,7 @@
     if(self.options.label != "") {
       self.$label = $("<div />")
         .addClass("character-label")
-        .html(self.options.label)
+        .html('Guns&nbsp;are&nbsp;' + self.options.label)
         .appendTo(self.$el);
     }
 
