@@ -31,25 +31,33 @@ a {
 	z-index: 3;
 }
 #navigation li { list-style: none; float: left; }
+#navigation li a { cursor: pointer; }
 #navigation li.logo a { display: block; height: 26px; width: 160; background: url('images/menubar.png') 0 0;}
 #navigation li.guided-tours a { display: block; height: 26px; width: 130; background: url('images/menubar.png') -192 0; margin-left: 50px; }
 #navigation li.create-booth a { display: block; height: 26px; width: 155; background: url('images/menubar.png') -350 0; margin-left: 50px; }
-#navigation li.about-show a { display: block; height: 26px; width: 160; background: url('images/menubar.png') -525 0; margin-left: 50px; }
 #navigation li.contact-us a { display: block; height: 26px; width: 110; background: url('images/menubar.png') -715 0; margin-left: 50px; }
+#navigation li.exit-show a { display: block; height: 26px; width: 161; background: url('images/exit-show.png'); margin-left: 50px; }
 
 #countdown {
 	display: none;
 }
 
 #intro-title {
-  background: url('images/introtitle_shrunk.png') no-repeat;
+  background: url('images/introtitle.png') no-repeat;
   background-size: 100%;
-  height: 1000px;
-  width: 46%;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  top: 11%;
-  left: 27%;
   z-index: 0;
+}
+
+#intro-year {
+  background: url('images/everyyear.png') no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
 #intro-input {
@@ -58,9 +66,10 @@ a {
   height: 100px;
   width: 560px;
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 50%;
   margin-left: -280px;
+  margin-top: -50px;
   z-index: 1;
 }
 
@@ -79,7 +88,12 @@ a {
   text-transform: uppercase;;
 }
 
-#intro-input input.button {
-  border: 2px solid white;  
+#intro-input .instruction {
+  background: url('images/pressenter.png') no-repeat;
+  background-size: 100%;
+  width: 180px;
+  height: 75px;
+  margin-top: 80px;
+  margin-left: 300px;
 }
 

@@ -17,6 +17,7 @@
       new_uri += loc.pathname + "socks";
       var conn = new WebSocket(new_uri);
     }
+
     </script>
     <script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="lib/jquery.countdown.js"></script>
@@ -34,9 +35,10 @@
     <div id="intro-vid" style="position:absolute;z-index:4;height:100%;width:100%;">
       <div id="intro-input" style="display:none">
         <input class="text" />
-        <input class="button" value="Enter the Showroom" />
+        <div class="instruction" style="display:none"></div>
       </div>
       <div id="intro-title" style="display:none"></div>
+      <div id="intro-year" style="display:none"></div>
     </div>
     <div id="outro-vid"></div>
     <div id="navigation">
@@ -46,6 +48,7 @@
         <li class="create-booth"><a></a></li>
         <li class="about-show"><a></a></li>
         <li class="contact-us"><a></a></li>
+        <li class="exit-show"><a></a></li>
       </ul>
     </div>
     <div id="character"></div>
