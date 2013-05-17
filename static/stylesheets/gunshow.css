@@ -24,6 +24,17 @@
   width: 100%;
 }
 
+#character {
+  border: 2px solid #B26E00;
+  background-color: #FFA300;
+  opacity: 1;
+}
+
+#character .character-label {
+  border: 2px solid #B26E00;
+  background-color: #FFA300;
+  opacity: 1;
+}
 
 .character {
   position: absolute;
@@ -34,6 +45,7 @@
   border-radius: 15px;
   border: 2px solid #007eaa;
   background-color: #00b1ff;
+  opacity: 0.7; 
 }
 
 .character .character-label {
@@ -54,6 +66,7 @@
   z-index: 1;
   top: -50px;
 }
+
 .presentation iframe {
   height: 100%;
   width: 100%;
