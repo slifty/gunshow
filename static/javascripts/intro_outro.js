@@ -95,7 +95,9 @@ $(document).ready(function() {
   });
 
   // outro video
-  //var outro = Popcorn.vimeo('#outro-vid', '');
-  // once timer is up
-  // outro.play()
+  //var outro = Popcorn.vimeo('#outro-vid', 'https://vimeo.com/66374037?autoplay=1');
+  // $("#leave-showroom").click(function() {
+    // $("#outro-vid").show();
+    // outro.play();
+  // }
 });
