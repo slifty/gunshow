@@ -35,6 +35,9 @@ $(document).ready(function() {
         // Delete the video
         $("#intro-vid").remove();
 
+        // Play background noise
+        //$("#background-audio").play();
+
         // load booth and section data (JSON)
         $(function() {
           $.ajax({
@@ -109,7 +112,9 @@ $(document).ready(function() {
   });
 
   // outro video
-  //var outro = Popcorn.vimeo('#outro-vid', '');
-  // once timer is up
-  // outro.play()
+  //var outro = Popcorn.vimeo('#outro-vid', 'https://vimeo.com/66374037?autoplay=1');
+  // $("#leave-showroom").click(function() {
+    // $("#outro-vid").show();
+    // outro.play();
+  // }
 });
