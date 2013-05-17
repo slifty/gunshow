@@ -16,6 +16,8 @@
 
     self.options = $.extend( {}, defaults, options );
 
+    self.$el.addClass("character-" + self.options.type);
+
     self.moving = false;
     self.keys = {};
     self.leftDest = 0;
