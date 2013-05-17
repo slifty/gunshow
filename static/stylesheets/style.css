@@ -85,7 +85,8 @@ a {
   color: #FFE354;
   font-size: 32px;
   font-family: arial;
-  text-transform: uppercase;;
+  text-transform: uppercase;
+  outline: none;
 }
 
 #intro-input .instruction {
@@ -97,3 +98,28 @@ a {
   margin-left: 300px;
 }
 
+
+#outro-text-1 {
+  background: url('images/outro-text-black-1.png') no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+#outro-text-2 {
+  background: url('images/outro-text-black-2.png') no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+#outro-text-3 {
+  background: url('images/outro-text-black-3.png') no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}

@@ -51,7 +51,7 @@
   height: 100%;
   width: 100%;
   background: #000;
-  z-index: 4;
+  z-index: 1;
   top: -50px;
 }
 .presentation iframe {
@@ -92,4 +92,6 @@
 }
 .info-bar h1 {
   color: #fff;
+  font-family: arial;
+  text-align: center;
 }

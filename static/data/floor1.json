@@ -154,7 +154,7 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": ""
+      "booth_url": "booths/cam1/index.html"
     },
     {
       "number": "",
@@ -168,7 +168,7 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": ""
+      "booth_url": "booths/cam2/index.html"
     },
     {
       "number": "",
@@ -182,7 +182,7 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": ""
+      "booth_url": "booths/cam3/index.html"
     },
     {
       "number": "",
@@ -196,7 +196,7 @@
       "height": 72,
       "width": 72,
       "background_url": "",
-      "booth_url": ""
+      "booth_url": "booths/cam4/index.html"
     }
   ],
   "sections": [

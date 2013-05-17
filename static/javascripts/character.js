@@ -77,12 +77,6 @@
             moveKey = true;
         }
 
-        conn.send(JSON.stringify({
-          'top': $("#character").position().top,
-          'left': $("#character").position().left,
-          'label': self.options.label,
-        }));
-
         // Delete movement if another key is pressed
         if(!moveKey) self.stopWalking();
         if(!self.moving) self.startWalking();
@@ -177,7 +171,14 @@
       self.moveTo(newLeft, newTop, true);
 
       // Keep on walking if we just moved
-      if(moved) setTimeout(function() { if(self.moving) self.startWalking(); }, self.options.walkSpeed)
+      if(moved) setTimeout(function() { 
+        if(self.moving) self.startWalking();
+        conn.send(JSON.stringify({
+          'top': newTop,
+          'left': newLeft,
+          'label': self.options.label,
+        }));
+      }, self.options.walkSpeed)
       else self.moving = false;
     },
 

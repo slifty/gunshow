@@ -19,7 +19,7 @@ $(document).ready(function() {
     $("#intro-title").fadeOut(1000);
   });
 
-  intro.cue(0, function() {
+  intro.cue(25, function() {
     $("#intro-input").fadeIn(1000);
     $("#intro-input .text").focus();
     var fadedIn = false;
@@ -35,8 +35,7 @@ $(document).ready(function() {
         // Delete the video
         $("#intro-vid").remove();
 
-        // Play background noise
-        //$("#background-audio").play();
+        $("#background-audio")[0].play(); // TODO BADNESS
 
         // load booth and section data (JSON)
         $(function() {
@@ -112,9 +111,34 @@ $(document).ready(function() {
   });
 
   // outro video
-  //var outro = Popcorn.vimeo('#outro-vid', 'https://vimeo.com/66374037?autoplay=1');
-  // $("#leave-showroom").click(function() {
-    // $("#outro-vid").show();
-    // outro.play();
-  // }
+  $(".exit-show").click(function() {
+    $("#navigation").fadeOut(1000);
+    $("#gunshow").fadeOut(1000, function() {
+      $("#gunshow").remove();
+    });
+
+    var outro = Popcorn.vimeo('#outro-vid', 'http://player.vimeo.com/66374037?autoplay=1');
+    $("#outro-vid").fadeIn(1000);
+    outro.autoplay(true);
+
+    outro.cue(1, function() {
+      console.log("TEST");
+      $("#outro-text-1").show();
+    });
+    outro.cue(5, function() {
+      $("#outro-text-1").hide();
+    });
+    outro.cue(6, function() {
+      $("#outro-text-2").show();
+    });
+    outro.cue(10, function() {
+      $("#outro-text-2").hide();
+    });
+    outro.cue(11, function() {
+      $("#outro-text-3").show();
+    });
+    outro.cue(19, function() {
+      $("#outro-text-3").hide();
+    });
+  });
 });

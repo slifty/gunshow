@@ -211,7 +211,9 @@
 
       if((y - self.floorOffsetTop) > ($(document).height() * .8)) {
         // Scrolling down
-        newOffsetTop = self.floorOffsetTop + $(document).height() * .2;
+        newOffsetTop = Math.max(
+          self.floorOffsetTop + $(document).height() * .2,
+          y - $(document).height() * .7);
         newOffset = true;
       } else if((y - self.floorOffsetTop) < ($(document).height() * .2)) {
         // Scrolling up
@@ -225,6 +227,8 @@
     },
 
     enterBooth: function(booth) {
+      $("#background-audio")[0].pause(); // TODO BADNESS
+
       var self = this;
       if(self.currentBooth != booth) {
         self.currentBooth = booth;
@@ -255,6 +259,7 @@
     },
 
     exitBooth: function() {
+      $("#background-audio")[0].play(); // TODO BADNESS
       var self = this;
       self.$presentation.empty();
       if(self.currentBooth != null) {
