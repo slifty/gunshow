@@ -40,3 +40,46 @@ a {
 #countdown {
 	display: none;
 }
+
+#intro-title {
+  background: url('images/introtitle_shrunk.png') no-repeat;
+  background-size: 100%;
+  height: 1000px;
+  width: 46%;
+  position: absolute;
+  top: 11%;
+  left: 27%;
+  z-index: 0;
+}
+
+#intro-input {
+  background: url('images/gunsare.png') no-repeat;
+  background-size: 250px;
+  height: 100px;
+  width: 560px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  margin-left: -280px;
+  z-index: 1;
+}
+
+#intro-input input.text {
+  height: 55px;
+  padding: 5px;
+  width: 290px;
+  border: 3px double #FFE354;
+  background: none;
+  position: absolute;
+  top: 25px;
+  margin-left: 250px;
+  color: #FFE354;
+  font-size: 32px;
+  font-family: arial;
+  text-transform: uppercase;;
+}
+
+#intro-input input.button {
+  border: 2px solid white;  
+}
+

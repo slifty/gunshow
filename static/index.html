@@ -28,82 +28,17 @@
     <script type="text/javascript" src="javascripts/character.js"></script>
 
     <script type="text/javascript">
-      // load booth and section data (JSON)
-      $(function() {
-        $.ajax({
-          "method": "GET",
-          "url": "data/floor1.json",
-          "dataType": "JSON"
-        })
-        .done(function(data) {
-          var $gunshow = $("#gunshow");
-          $gunshow.Gunshow(data);
-
-          var $character = $("#character");
-          $character.GunshowCharacter({
-            type: "user",
-            label: "complex"
-          });
-
-          var $roamingCharacter = $("#roaming_character");
-          $roamingCharacter.GunshowCharacter();
-
-          $character.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"), 600, 800);
-          $roamingCharacter.data("GunshowCharacter").enterSpace($gunshow.data("Gunshow"), 100, 100);
-
-          if ('WebSocket' in window) {
-            var remote_chars = {};
-            var id;
-            conn.onmessage = function(e) {
-              var data = JSON.parse(e.data);
-              id = data['id'];
-              if (!(id in remote_chars)) {
-                remote_chars[id] = $("<div />")
-                  .GunshowCharacter({
-                    type: 'remote',
-                    label: data['label']
-                  })
-                  .data('GunshowCharacter');
-                remote_chars[id].enterSpace($gunshow.data("Gunshow"), data['left'], data['top']);
-              } else if ("closing" in data) {
-                remote_chars[id].leaveSpace($gunshow.data("Gunshow"));
-                delete remote_chars[id];
-              } else {
-                remote_chars[id].moveTo(data['left'], data['top']);
-              }
-            }
-          }
-        })
-      });
-
-      // set timer and callback function
-      $(function(){ 
-        // initialize to 10 minutes
-        ts = (new Date()).getTime() + 10*60*1000;
-          
-        $('#countdown').countdown({
-          timestamp : ts,
-          callback  : function(minutes, seconds){
-            if (minutes == 5 && seconds == 0) {
-              console.log("You have 5 minutes left!");
-            }
-            if (minutes == 1 && seconds == 0) {
-              console.log("One minute left!!");
-            }
-            if (minutes == 0 && seconds == 0) {
-              // kick out of showroom
-              console.log("GET OUT");
-            }
-          }
-        }); 
-      });
     </script>
   </head>
   <body>
     <div id="intro-vid" style="position:absolute;z-index:4;height:100%;width:100%;">
-    <input id="intro-input" style="position:absolute;z-index:4;display:none;" autofocus />
+      <div id="intro-input" style="display:none">
+        <input class="text" />
+        <input class="button" value="Enter the Showroom" />
+      </div>
+      <div id="intro-title" style="display:none"></div>
     </div>
-    <div id="outro=vid"></div>
+    <div id="outro-vid"></div>
     <div id="navigation">
       <ul>
         <li class="logo"><a></a></li>

@@ -5,7 +5,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 1;
+  z-index: 5;
 }
 
 .booth {
@@ -51,12 +51,12 @@
   height: 100%;
   width: 100%;
   background: #000;
-  z-index: 0;
+  z-index: 4;
+  top: -50px;
 }
 .presentation iframe {
   height: 100%;
-  width: 80%;
-  margin: 0px 10%;
+  width: 100%;
 }
 
 #countdown {
@@ -92,17 +92,4 @@
 }
 .info-bar h1 {
   color: #fff;
-}
-
-#intro-input {
-  position: absolute;
-  border: none;
-  background: transparent;
-  font-size: 22px;
-  color: white;
-  /* need to position correctly */
-  top: 250px;
-  left: 685px;
-  height: 30px;
-  width: 110px;
 }

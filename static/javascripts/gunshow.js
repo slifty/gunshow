@@ -38,7 +38,7 @@
 
       self.$floor = $("<div />")
         .addClass("floor")
-        .css("transition", "top 1s, left 1s")
+        .css("transition", "opacity 1s, top 1s, left 1s")
         .width(self.options.floorWidth)
         .height(self.options.floorHeight)
         .appendTo(self.$viewport);
@@ -241,7 +241,7 @@
         self.$presentation
           .fadeIn(1000, 
             function() { $(this).html("<iframe src='" + booth.booth_url + "' frameBorder='0'></iframe>") });
-
+        $("#navigation").hide(); // TODO - OH GOD NO
         var iFrameHack = function() {
           // This keeps the arrow keys controlling the avatar.
           // It also prevents the ability to input text. and therefore this isn't a long terms olution
@@ -268,16 +268,18 @@
         self.$presentation.fadeOut(1000);
         self.$infoBar.fadeOut(1000)
       }
+      $("#navigation").show(); // TODO - OH GOD NO
     },
 
     setViewport: function(x, y, height, width) {
       var self = this;
       self.$viewport.css("height", height=="100%"?height:(height + 20));
       self.$viewport.css("width", width=="100%"?width:(width  + 20));
-      self.$viewport.css("top", 0);
+      self.$viewport.css("top", height=="100%"?0:(-50)); // TODO -- lololol
       self.$viewport.css("left", 0);
       self.$floor.css("top", -(y + (width=="100%"?self.floorOffsetTop:(-10))));
       self.$floor.css("left", -(x + (width=="100%"?self.floorOffsetLeft:(-10))));
+      self.$floor.css("opacity", height=="100%"?1:(0.6));
     }
   };
 
