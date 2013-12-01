@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // intro video
-  var intro = Popcorn.vimeo('#intro-vid', 'http://player.vimeo.com/video/66376335?autoplay=1');
+  var intro = Popcorn.vimeo('#intro-vid', 'https://vimeo.com/66370342?autoplay=true');
   intro.autoplay(true);
 
   intro.cue(.5, function() {
