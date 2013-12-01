@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // intro video
-  var intro = Popcorn.vimeo('#intro-vid', 'https://vimeo.com/66370342?autoplay=true');
+  var intro = Popcorn.vimeo('#intro-vid', 'https://vimeo.com/78269270?autoplay=true');
   intro.autoplay(true);
 
   intro.cue(.5, function() {
@@ -119,7 +119,7 @@ $(document).ready(function() {
     
     $("#background-audio").remove(); // TODO BADNESS
 
-    var outro = Popcorn.vimeo('#outro-vid', 'http://player.vimeo.com/66376411?autoplay=1');
+    var outro = Popcorn.vimeo('#outro-vid', 'https://vimeo.com/78270968?autoplay=1');
     $("#outro-vid").fadeIn(1000);
     outro.autoplay(true);
 
