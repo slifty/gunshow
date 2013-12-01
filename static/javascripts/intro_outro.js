@@ -116,8 +116,10 @@ $(document).ready(function() {
     $("#gunshow").fadeOut(1000, function() {
       $("#gunshow").remove();
     });
+    
+    $("#background-audio").remove(); // TODO BADNESS
 
-    var outro = Popcorn.vimeo('#outro-vid', 'http://player.vimeo.com/66374037?autoplay=1');
+    var outro = Popcorn.vimeo('#outro-vid', 'http://player.vimeo.com/66376411?autoplay=1');
     $("#outro-vid").fadeIn(1000);
     outro.autoplay(true);
 
